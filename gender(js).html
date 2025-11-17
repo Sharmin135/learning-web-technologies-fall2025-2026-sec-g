@@ -1,0 +1,59 @@
+<html>
+  <head>
+      <title>Gender</title>
+  </head>
+
+  <body>
+    <form action="" onsubmit="return test()">
+        <fieldset>
+            <legend>Gender</legend>
+            <table>
+                <tr>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="male" onblur="validateGender()"> Male
+                        <input type="radio" name="gender" id="female" value="female" onblur="validateGender()"> Female
+                        <input type="radio" name="gender" id="other" value="other" onblur="validateGender()"> Other
+
+                        <p id="genderError" style="margin: 5px 0 0 0;"></p>
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td>
+                        <input type="submit" value="submit">
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+
+        let genderError = document.getElementById('genderError');
+
+        function validateGender() {
+
+            let male = document.getElementById('male').checked;
+            let female = document.getElementById('female').checked;
+            let other = document.getElementById('other').checked;
+
+            if (!male && !female && !other) {
+                genderError.innerHTML = "Please select a gender!";
+                genderError.style.color = "red";
+                return false;
+            }
+
+            genderError.innerHTML = "";
+            return true;
+        }
+
+        function test() {
+            return validateGender();
+        }
+
+    </script>
+
+  </body>
+</html>
