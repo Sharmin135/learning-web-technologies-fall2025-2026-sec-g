@@ -1,0 +1,52 @@
+<html>
+  <head>
+      <title>Blood Group Validation</title>
+  </head>
+
+  <body>
+
+    <table>
+        <tr>
+            <td>Blood Group</td>
+            <td>
+                <select id="bloodGroup" onblur="validateBlood()">
+                    <option value="">Select</option>
+                    <option value="A+">A+</option>
+                    <option selected value="B+">B+</option>
+                    <option value="AB+">AB+</option>
+                </select>
+                <p id="bgError" style="margin: 5px 0 0 0;"></p>
+            </td>
+        </tr>
+    </table>
+
+    <tr>
+        <hr>
+        <td>
+            <input type="submit" value="submit" onclick="return test()">
+        </td>
+    </tr>
+
+    <script>
+        let bgError = document.getElementById('bgError');
+
+        function validateBlood() {
+            let bg = document.getElementById('bloodGroup').value;
+
+            if (bg === "") {
+                bgError.innerHTML = "Please select a blood group!";
+                bgError.style.color = "red";
+                return false;
+            }
+
+            bgError.innerHTML = "";
+            return true;
+        }
+
+        function test() {
+            return validateBlood();
+        }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Picture Upload</title>
+</head>
+<body>
+
+<form onsubmit="return submitForm()">
+    <fieldset style="width:300px;">
+        <legend>Profile Picture</legend>
+
+        User Id <br>
+        <input type="text" id="userId" /> <br><br>
+
+        Picture <br>
+        <input type="file" id="picture" /> <br><br>
+
+        <hr>
+
+        <input type="submit" value="Submit" />
+    </fieldset>
+</form>
+
+<script>
+function submitForm() {
+    let userId = document.getElementById("userId").value;
+    let picture = document.getElementById("picture").value;
+
+    if (userId === "") {
+        alert("Please enter User Id");
+        return false;
+    }
+
+    if (picture === "") {
+        alert("Please select a picture");
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>
